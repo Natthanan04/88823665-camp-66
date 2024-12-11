@@ -1,16 +1,246 @@
 /* mystyle.css */
-
-h1{
-    color: green;
-    margin: 25px;
-    padding: 10px 50px 20px 50px;
-    border: 5px solid;
-    border-radius: 20px;
-}
-h1:hover{
-    background-color: pink;
-}
-
 body {
-    font-family: 'Sarabun', sans-serif;
+    font-family: 'Sarabun', Nunito, sans-serif;
+    background: linear-gradient(90deg, rgba(90, 99, 156, 1) 0%, rgba(226, 187, 233, 1) 100%);
+}
+
+
+h1 {
+    color: #5A639C;
+    font-size: 35px;
+    margin-bottom: 30px;
+    font-family: Nunito;
+}
+
+.form-info {
+    margin: auto;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+td {
+    padding: 5px;
+}
+
+label {
+    color: #343958;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+    background-color: #f3f3f3;
+    border: 1pt solid #5A639C;
+    border-radius: 5pt;
+    height: 20pt;
+    padding: 2px 5px;
+}
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="date"]:hover,
+input[type="radio"]:hover,
+textarea:hover,
+select:hover{
+    background-color: #fcfcfc;
+    border-color: #5A639C;
+    border-radius: 5pt;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="radio"]:focus,
+input[type="file"]:focus,
+textarea:focus,
+select:focus{
+    background-color: #fcfcfc;
+    border-color: #5A639C;
+    border-radius: 5pt;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+input[type="text"]:active,
+input[type="number"]:active,
+input[type="date"]:active,
+input[type="radio"]:active,
+input[type="file"]:active,
+textarea:active,
+select:active{
+    background-color: #ecdeee;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+input[type="date"] label{
+    color: #5A639C;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: #EEDAF1;        
+    border-radius: 50%;           
+    padding: 5px;             
+    cursor: pointer; 
+    border: 1pt solid #5A639C;           
+}
+input[type="date"]{
+    font-family:Nunito;
+    color: #5A639C;
+    padding-left: 26px;
+    padding-right: 24px;
+}
+.gender-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.gender-container input[type="radio"] , .fav-song input[type="radio"] {
+    display: none;
+}
+
+.gender-container label ,.fav-song label{
+    display: flex;
+    gap: 10px;
+    padding: 5px 20px;
+    border: 1pt solid #5A639C; 
+    border-radius: 5pt;
+    background-color: #f3f3f3;
+    cursor: pointer;
+    transition: all 0.3s ease;  
+    color: #5A639C;
+}
+
+.gender-container input[type="radio"]:checked + label ,.fav-song input[type="radio"]:checked + label{
+    background-color: #EEDAF1;
+    border-color: #7d5a99;
+    color: #5A639C;
+}
+.fav-song label {
+    display: inline-block;
+    border-radius: 35pt;
+    color: #5A639C;
+}
+.gender-container label:hover, .fav-song label:hover {
+    background-color: #fcfcfc;
+    border-color: #5A639C;
+    color: #5A639C;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+.custom-file-upload {
+    font-family:Nunito;
+    display: flexbox;
+    padding: 4px 55px;
+    font-size: 14px;
+    text-align: center;
+    color: #5A639C;
+    background: #f3f3f3;
+    border: 2px dashed #5A639C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.custom-file-upload:hover{
+    background: #fcfcfc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+input[type="file"] {
+    display: none;
+}
+
+button {
+    font-family:Nunito;
+    display: inline-block;
+    width: 100%;
+    padding: 7pt;
+    font-size: 18px;
+    text-align: center;
+    background-color: #5A639C;
+    color: #343958;
+    border-radius: 5pt;
+    cursor: pointer;
+}
+.button-submit {
+    background-color: #f9d5ff;
+    font-size: 18px;
+    border-radius: 5pt;
+    padding: 7pt;
+    border: 2pt solid #5A639C;
+    font-weight: bold;
+}
+.button-submit:hover {
+    font-size: 20px;
+    background-color: #04da20;
+    transform: scale(1.02);
+}
+.button-reset {
+    background-color: #f4f4f4;
+    font-size: 18px;
+    border-radius: 5pt;
+    padding: 7pt;
+    border: 2pt solid #5A639C;
+    font-weight: bold;  
+}
+.button-reset:hover {
+    font-size: 20px;
+    background-color: #ff0000;
+    transform: scale(1.02);
+   
+}
+input[type="checkbox"] {
+    width: 19px;
+    height: 19px;
+    appearance: none;
+    border: 2px solid #5A639C; 
+    border-radius: 4px; 
+    background-color: #f4f4f4; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    vertical-align: middle;
+    position: relative;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #f9d5ff;
+    border-color: #5A639C;
+    display: inline; 
+    align-items: center;
+    justify-content: center; 
+}
+
+input[type="checkbox"]:checked::after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 11px;
+    border: solid #5A639C;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 2px;
+    left: 6px;
+}
+select {
+    font-family:'Sarabun';
+    border: 1px solid #5A639C;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    color: #5A639C;
+}
+option {
+    color: #5A639C;
 }
