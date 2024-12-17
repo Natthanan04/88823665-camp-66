@@ -19,44 +19,92 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.bundle.min.js"></script>
 </head>
+<style>
+    body {
+        font-family: 'Sarabun', sans-serif;
+    }
+</style>
 
-<body>
-    <div class="container">
-        <h1>Workshop #HTML-FORM</h1>
-        <label for="fname">ชื่อ</label>
-        <input type="text" id="fname" name="fname" />
-        <label for="lname">นามสกุล</label><input type="text" id="lname" name="lname" />
-        <label for="dob">วัน/เดือน/ปีเกิด</label></td>
-        <input type="date" id="dob" name="dob" />
-        <label for="age">อายุ</label></td>
-        <input type="number" id="age" name="age" min="0" />
-        <label for="gender">เพศ</label>
-        <input type="radio" id="male" name="gender" value="ชาย" />
-        <label for="male">ชาย</label>
-        <input type="radio" id="female" name="gender" value="หญิง" />
-        <label for="female">หญิง</label>
-        <label for="photo">รูป</label>
-        <input type="file" id="photo" name="photo" />
-        <label for="photo" class="custom-file-upload">Choose File</label>
-        <label for="address">ที่อยู่</label>
-        <textarea id="address" name="address" rows="5" cols="22"></textarea>
-        <label for="favcolor">สีที่ชอบ</label>
-        <select id="favcolor" name="favcolor">
-            <option value="สีแดง">สีแดง</option>
-            <option value="สีน้ำเงิน">สีน้ำเงิน</option>
-            <option value="สีเขียว">สีเขียว</option>
-            <option value="สีเหลือง">สีเหลือง</option>
-        </select><label for="music">แนวเพลงที่ชอบ</label>
-        <input type="radio" id="life" name="music" value="เพื่อชีวิต" />
-        <label for="life">เพื่อชีวิต</label>
-        <input type="radio" id="country" name="music" value="ลูกทุ่ง" />
-        <label for="country">ลูกทุ่ง</label>
-        <input type="radio" id="other" name="music" value="อื่นๆ" />
-        <label for="other">อื่นๆ</label>
-        <br><input type="checkbox" id="consent" name="consent" value="ยอมรับ" required>
-        <label for="consent">ยินยอมให้เก็บข้อมูล</label>
-        <button class="button-reset" type="reset">Reset</button>
-        <button class="button-submit" type="submit">Submit</button>
+<body class="bg-primary-subtle">
+    <div class="container ">
+        <div class="vh-100 d-flex justify-content-center align-items-center ">
+            <form class="row g-3 border my-3 rounded-4 bg-light p-3">
+                <div class="col-md-6">
+                    <label for="fname" class="form-label">ชื่อ</label>
+                    <input class="form-control" type="text" id="fname" name="fname" placeholder="ชื่อ"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="lname" class="form-label">นามสกุล</label>
+                    <input class="form-control" type="text" id="lname" name="lname" placeholder="นามสกุล"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="dob" class="form-label">วัน/เดือน/ปีเกิด</label></td>
+                    <input class="form-control" type="date" id="dob" name="dob" />
+                </div>
+                <div class="col-md-6">
+                    <label for="age" class="form-label">อายุ</label></td>
+                    <input class="form-control" type="number" id="age" name="age" min="0" />
+                </div>
+                <div class="col-md-6">
+                    <label for="gender" class="form-label d-block ">เพศ</label>
+                    <input type="radio" class="btn-check" id="male" name="gender" value="ชาย" />
+                    <label class="btn " for="male">ชาย</label>
+                    <input type="radio" class="btn-check" id="female" name="gender" value="หญิง" />
+                    <label class="btn" for="female">หญิง</label>
+                </div>
+                <div class="col-md-6">
+                    <label for="photo" class="form-label">รูป</label>
+                    <input class="form-control" type="file" id="photo" name="photo" />
+                </div>
+                <div class="col-12">
+                    <label for="address" class="form-label">ที่อยู่</label>
+                    <textarea class="form-control" id="address" rows="3"></textarea>
+                </div>
+                <div class="col-md-6">
+                    <label for="favcolor">สีที่ชอบ</label>
+                    <select class="form-select" id="favcolor" name="favcolor">
+                        <option value="สีแดง">สีแดง</option>
+                        <option value="สีน้ำเงิน">สีน้ำเงิน</option>
+                        <option value="สีเขียว">สีเขียว</option>
+                        <option value="สีเหลือง">สีเหลือง</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="music">แนวเพลงที่ชอบ</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="life" name="music" value="เพื่อชีวิต" />
+                        <label class="form-check-label" for="life">เพื่อชีวิต</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="country" name="music" value="ลูกทุ่ง" />
+                        <label class="form-check-label" for="country">ลูกทุ่ง</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" id="other" name="music" value="อื่นๆ" />
+                        <label class="form-check-label" for="other">อื่นๆ</label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <input type="checkbox" id="consent" name="consent" value="ยอมรับ" required>
+                    <label for="consent">ยินยอมให้เก็บข้อมูล</label>
+                </div>
+                <div class="container text-right">
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <div class="p-3">
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-3">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    
     </div>
 </body>
 
