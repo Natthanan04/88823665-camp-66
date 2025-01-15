@@ -14,4 +14,5 @@ class MultiplicationController extends Controller
         }
         return view('multiplication',['number' => $number, 'multiplicationTable' => $multiplicationTable]);
     }
+    
 }
