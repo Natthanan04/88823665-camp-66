@@ -6,8 +6,9 @@ use App\Http\Controllers\MultiplicationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
-
+// laravel template
 Route::get(
     '/login',
     [LoginController::class, 'index']
@@ -20,10 +21,28 @@ Route::get(
     '/home',
     [HomeController::class, 'index']
 );
-
 Route::get(
     '/',
     [HomeController::class, 'index']
+);
+
+// รับค่าจาก form แบบ POST ใน register
+Route::post(
+    '/register',
+    [RegisterController::class, 'create']
+);
+
+Route::get('/users',
+    [UserController::class, 'index']
+);
+Route::get('/user/{id}',
+    [UserController::class, 'edit']
+);
+Route::put('/user',
+    [UserController::class, 'edit_action']
+);
+Route::delete('/user',
+    [UserController::class, 'delete']
 );
 Route::get(
     '/mycontroller/{id?}',
@@ -43,6 +62,8 @@ Route::get('/hello/{id?}', function ($val = "") {
     return "<h1>Hello World $val</h1>";
 });
 
+
+// ตารางสูตรคูณ
 Route::get('/multiplication',
     [MultiplicationController::class, 'multiplication']
 );
