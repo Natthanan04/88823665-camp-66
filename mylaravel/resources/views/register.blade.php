@@ -4,11 +4,11 @@
 <div class="register-page">
 <div class="register-box">
     <div class="register-logo">
-      <a href="../index2.html"><b>Admin</b>LTE</a>
+      <a href="../index2.html"><b>Register</a>
     </div>
     <!-- /.register-logo -->
     <div class="card">
-      <div class="card-body register-card-body">
+      <div class="card-body register-card-body border border-black rounded-3">
         <p class="register-box-msg">Register a new membership</p>
         <form action="{{ url('/register') }}" method="post">
             @csrf
@@ -44,16 +44,7 @@
           </div>
           <!--end::Row-->
         </form>
-        <div class="social-auth-links text-center mb-3 d-grid gap-2">
-          <p>- OR -</p>
-          <a href="#" class="btn btn-primary">
-            <i class="bi bi-facebook me-2"></i> Sign in using Facebook
-          </a>
-          <a href="#" class="btn btn-danger">
-            <i class="bi bi-google me-2"></i> Sign in using Google+
-          </a>
-        </div>
-        <!-- /.social-auth-links -->
+
         <p class="mb-0">
           <a href="login" class="text-center"> I already have a membership </a>
         </p>

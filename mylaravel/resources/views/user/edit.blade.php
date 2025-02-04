@@ -8,8 +8,8 @@
     </div>
     <!-- /.register-logo -->
     <div class="card">
-      <div class="card-body register-card-body">
-        <p class="register-box-msg">Register a new membership</p>
+      <div class="card-body register-card-body border border-black rounded-3">
+        <p class="register-box-msg">Edit user</p>
         <form action="{{ url('/user') }}" method="post">
             @csrf
             @method('put')
@@ -23,7 +23,7 @@
             <div class="input-group-text"><span class="bi bi-envelope"></span></div>
           </div>
           <div class="input-group mb-3">
-            <input type="password" value="{{ $user->password}}" name="password" class="form-control" placeholder="Password" />
+            <input type="password" name="password" class="form-control" placeholder="Password" />
             <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
           </div>
           <!--begin::Row-->
@@ -31,7 +31,7 @@
             <div class="col-4">
               <div class="d-grid gap-2">
                 <a href="{{ url('/user',$user->id) }}">
-                <button type="submit" class="btn btn-primary">Sign In</button>
+                <button type="submit" class="btn btn-success">Confirm</button>
                 </a>
               </div>
             </div>

@@ -7,8 +7,8 @@
         <div class="card-header"><h3 class="card-title"></h3></div>
         <!-- /.card-header -->
         <div class="card-body">
-          <table class="table table-bordered">
-            <thead>
+          <table class="table table-bordered ">
+            <thead class="table-light">
               <tr>
                 <th style="width: 10px">#</th>
                 <th>Name</th>
@@ -16,13 +16,13 @@
                 <th style="width: 240px"></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="table-group-divider">
              <?php foreach ($users as $index => $user) { ?>
               <tr class="align-middle">
                 <td>{{ $index+1 }}.</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                <td>
+                <td class="d-flex">
                     <a href="{{ url('/user',$user->id) }}">
                     <button class="btn btn-warning">Edit</button>
                     </a>
@@ -30,7 +30,7 @@
                         @csrf
                         @method('delete')
                         <input type="hidden" name="id" value="{{ $user->id }}">
-                        <button class="btn btn-danger">Delete</button>
+                        <button type class="btn btn-danger">Delete</button>
                     </form>
                 </td>
               </tr>
