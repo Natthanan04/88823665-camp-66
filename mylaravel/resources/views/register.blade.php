@@ -4,13 +4,13 @@
     <div class="register-page">
         <div class="register-box">
             <div class="register-logo">
-                <a href="../index2.html"><b>Admin</b>LTE</a>
+                <a href="../index2.html"><b>Register</b></a>
             </div>
             <!-- /.register-logo -->
             <div class="card">
                 <div class="card-body register-card-body">
                     <p class="register-box-msg">Register a new membership</p>
-                    <form action="{{ url('/register') }}" onsubmit="return myfunction();" method="post">
+                    <form action="{{ url('/register') }}" onsubmit="return myfunction()" method="post">
                         @csrf
                         <div class="input-group mb-3">
                             <input type="text" name="name" id="name" class="form-control"
@@ -54,7 +54,7 @@
                                     <label class="form-check-label" for="flexCheckDefault">
                                         I agree to the <a href="#">terms</a>
                                     </label>
-                                    <div id="invalidCheck3Feedback" class="invalid-feedback" id="invalid-mycheckbox">
+                                    <div class="invalid-feedback" id="invalid-mycheckbox">
                                         กรุณายืนยันเงื่อนไขก่อนดำเนินการ
                                     </div>
                                 </div>
@@ -69,18 +69,18 @@
                         </div>
                         <!--end::Row-->
                     </form>
-                    <button class="btn" onclick="myfunction()">Click me</button>
                     <div class="social-auth-links text-center mb-3 d-grid gap-2">
 
                         <!-- /.social-auth-links -->
                         <p class="mb-0">
-                            <a href="login.html" class="text-center"> I already have a membership </a>
+                            <a href="{{ url('/login') }}" class="text-center"> I already have a membership </a>
                         </p>
                     </div>
                     <!-- /.register-card-body -->
                 </div>
             </div>
         </div>
+    </div>
     @endsection
 
     @section('scripts')
@@ -97,8 +97,13 @@
             // ALERT("Hello World!")
 
             function myfunction() {
-                let name = document.getElementById('name')
-                name = $('#name')
+                let $name = $('#name');
+                let $email = $('#email');
+                let $pass = $('#pass');
+                let $mycheckbox = $('#mycheckbox');
+                let isValid = true;
+
+                /*let name = document.getElementById('name')
                 let email = document.getElementById('email')
                 let pass = document.getElementById('pass')
                 let mycheckbox = document.getElementById('mycheckbox')
@@ -106,26 +111,42 @@
                 //name.value = "My Name Value"
                 //name.val("My Name Value")
                 console.log(name.val(), email.value,
-                    pass.value, mycheckbox.checked)
+                    pass.value, mycheckbox.checked)*/
 
-                if (name.val() == "") {
-                    name.addClass('is-invalid');
+                if ($name.val() == "") {
+                    $name.addClass('is-invalid');
                     //$('invalid-name').html("<b><u>ใส่ name เป็นค่านี้ไม่ได้ </u></b>")
-                    return false;
+                    isValid = false;
                 } else {
-                    name.removeClass('is-invalid');
+                    $name.removeClass('is-invalid');
                 }
 
                 // ตรวจสอบ Email
-                let $email = $('#email');
                 if (!($email.val().includes("@") && $email.val().includes("."))) {
                     $email.addClass('is-invalid');
-                    return false;
+                    isValid = false;
                 } else {
                     $email.removeClass('is-invalid');
                 }
 
-                return true;
+                // ตรวจสอบ Password
+                let passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])/;
+                if (!passwordRegex.test($pass.val())){
+                    $pass.addClass('is-invalid');
+                    isValid = false;
+                } else {
+                    $pass.removeClass('is-invalid');
+                }
+
+                // ตรวจสอบ Checkbox
+                if(!$mycheckbox.is(':checked')){
+                    $mycheckbox.addClass('is-invalid');
+                    isValid = false;
+                }else {
+                    $mycheckbox.removeClass('is-invalid');
+                }
+
+                return isValid;
             }
 
             //myfunction()
