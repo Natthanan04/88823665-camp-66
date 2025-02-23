@@ -9,7 +9,7 @@
                 <input name="category_name" type="text" class="form-control" />
             </div>
         </div>
-        <button type="button" class="btn btn-primary mt-3" id="btn-add-product-list"> + เพิ่ม Product</button>
+        <button class="btn btn-primary mt-3" id="btn-add-product-list" type="button"> + เพิ่ม Product</button>
         <div class="row mt-3" id="product-list">
             <div class="col-6">
                 <label>Product Name <button type="button"
@@ -19,7 +19,7 @@
         </div>
         <button type="submit" class="btn btn-success mt-3 mb-3">บันทึก</button>
     </form>
-    <table class="table">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <td>#</td>
@@ -29,17 +29,24 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($category as $index => $category)
             <tr>
-                <td>1.</td>
-                <td>Category Name</td>
+                <td>{{ $index + 1 }}.</td>
+                <td>{{ optional($category)->name ?? 'ไม่มีหมวดหมู่' }}</td>
                 <td>
                     <ul>
-                        <li>Product 01.</li>
-                        <li>Product 02.</li>
+                        @foreach($category->productList as $product)
+                            <li>{{ $product->name }}</li>
+                        @endforeach
                     </ul>
                 </td>
-                <td>User name</td>
+                <td>
+                    <ul>
+                        {{ $product->user->name ?? 'N/A' }}
+                    </ul>
+                </td>
             </tr>
+        @endforeach
         </tbody>
     </table>
 @endsection
@@ -47,10 +54,11 @@
     <script>
         $(document).ready(function() {
             $('#btn-add-product-list').on('click', function() {
-                $(product - list).append(`
+                $('#product-list').append(`
                     <div class="col-6">
-                    <label>Product Name <button type="button" class="btn btn-danger ml-3 mt-2 mb-2 btn-del-product-list"></button></label>
-                    <input name="product_name[]" type="text" class="form-control" />
+                        <label>Product Name <button type="button"
+                                                class="btn btn-danger ml-3 mt-2 mb-2 btn-del-product-list">ลบ</button></label>
+                        <input name="product_name[]" type="text" class="form-control" />
                     </div>`
                 )
             })
